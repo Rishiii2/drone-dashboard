@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AeroDash</string>
+    <string name="title_activity_main">AeroDash</string>
+    <string name="package_name">com.aerodash.app</string>
+    <string name="custom_url_scheme">com.aerodash.app</string>
+</resources>

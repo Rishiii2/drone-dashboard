@@ -1,0 +1,35 @@
+{
+  "name": "drone-dashboard",
+  "version": "2.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "electron:dev": "electron .",
+    "electron:build": "next build && electron-builder"
+  },
+  "build": {
+    "appId": "com.aerodash.app",
+    "productName": "AeroDash",
+    "directories": { "output": "dist" },
+    "win": { "target": "dir" },
+    "asar": false,
+    "files": ["**/*", "!.next/cache/**/*"]
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4",
+    "next": "14.2.3",
+    "pg": "^8.11.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^42.3.0",
+    "electron-builder": "^26.8.1"
+  }
+}

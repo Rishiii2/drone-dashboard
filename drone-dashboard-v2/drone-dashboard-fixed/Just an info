@@ -1,0 +1,19 @@
+Just a quick recap of what you now have:
+
+🖥️ AeroDash.exe: You can use this on your Windows laptop out in the field. When your drone sends a POST request to your laptop's IP address on port 3000, your dashboard will instantly light up with data.
+📱 Android App: Your team members can build the .apk using Android Studio, install it on their phones, and connect to your laptop's IP address to watch the drone data live alongside you.
+📊 Excel Exports: At the end of the day, just click the "Export to Excel" button to get a full spreadsheet of all your telemetry history for your records.
+
+
+
+🚁 How the Drone Connects & Stores Data
+The .exe Desktop App automatically runs a hidden background server on Port 3000 the moment you open it. This server connects directly to the local SQLite database (drone_data.db) bundled in the app.
+
+The Connection: Your drone (or its ground control station/Raspberry Pi) simply needs to be on the same WiFi network as your PC.
+Sending Data: The drone's python/telemetry script just needs to send an HTTP POST request to your PC's IP Address: http://<YOUR_PC_IP>:3000/api/data
+Storing Data: The moment the desktop app receives that POST request, it automatically writes the data permanently into the local SQLite database and instantly updates the UI using real-time polling!
+🌍 Does it support Cross-Platform?
+Yes, absolutely! Because of the architecture we used, the codebase is completely cross-platform:
+
+Desktop (Electron): The exact same code can be compiled into a .exe (Windows), .dmg (Mac), or .AppImage (Linux) by simply running npm run electron:build on those respective operating systems!
+Mobile (Capacitor): The mobile build can be compiled into an .apk for Android using Android Studio, or an .ipa for iPhones using Xcode on a Mac!
